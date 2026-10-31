@@ -1,0 +1,17 @@
+/* Runwal Auris typography: GT Ultra Median, upright only (the site uses no italics).
+   Two weights ship: Regular covers 100-500 (the site's light text uses it), Bold covers 600-900. */
+@font-face {
+  font-family: 'GT Ultra Median';
+  src: url('/fonts/gt-ultra-median/GTUltraMedian-Regular.woff2') format('woff2');
+  font-weight: 100 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT Ultra Median';
+  src: url('/fonts/gt-ultra-median/GTUltraMedian-Bold.woff2') format('woff2');
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
