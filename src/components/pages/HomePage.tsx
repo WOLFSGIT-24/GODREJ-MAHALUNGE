@@ -1545,52 +1545,54 @@ const FinalLeadGenSection = () => {
   ];
 
   return (
-    <section id="enquiry" className="py-12 sm:py-24 lg:py-36 bg-[#0B1E34] text-white relative scroll-mt-20 lg:scroll-mt-[100px] overflow-hidden">
+    <section id="enquiry" className="py-10 sm:py-14 lg:py-16 bg-[#0B1E34] text-white relative scroll-mt-20 lg:scroll-mt-[100px] overflow-hidden">
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src="/godrej-banner-3.webp"
           sizes="100vw"
-          alt=""
-          className="w-full h-full object-cover object-[55%_center] lg:object-center opacity-30"
+          alt="Godrej Mahalunge luxury residences"
+          className="w-full h-full object-cover object-[60%_center] lg:object-[68%_center] opacity-80"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1E34] via-[#0B1E34]/90 to-[#0B1E34]/60" />
+        {/* Decreased overlay: gentle scrim on the left for text legibility, leaving the rest of the image clear and vibrant */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06111F]/80 via-[#06111F]/40 to-transparent" />
+        <div className="lg:hidden absolute inset-0 bg-gradient-to-t from-[#06111F]/85 via-transparent to-[#06111F]/30" />
       </div>
 
       <div className="max-w-[1320px] mx-auto px-5 sm:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-12 items-center">
 
           {/* Left Column Copy */}
           <div className="lg:col-span-6 max-lg:text-center">
             <Eyebrow light>Your Next Home Awaits</Eyebrow>
             <Display
-              className="text-2xl sm:text-3xl lg:text-4xl xl:text-[2.75rem] mb-3 sm:mb-4"
+              className="text-2xl sm:text-3xl lg:text-4xl xl:text-[2.6rem] mb-2 sm:mb-3"
               lines={['Your Next Home in', <span key="w" className="text-[#E3CF9F]">West Pune Awaits.</span>]}
             />
 
             <CinematicReveal delay={0.1}>
-              <h3 className="font-heading text-lg sm:text-xl text-white/95 font-light mb-2.5">
+              <h3 className="font-heading text-lg sm:text-xl text-white/95 font-light mb-1.5 sm:mb-2">
                 Godrej Mahalunge — Where French Elegance Meets Modern Living.
               </h3>
-              <p className="text-[15px] sm:text-[17px] text-white/80 mb-2">
+              <p className="text-[14.5px] sm:text-[16px] text-white/80 mb-2">
                 Premium 3 BHK Residences &amp; Limited 4 BHK Duplex Homes
               </p>
-              <div className="flex flex-wrap items-center gap-3 mb-6 max-lg:justify-center">
-                <span className="text-[12px] uppercase tracking-[0.2em] text-[#C9AE76]">📍 Mahalunge, Pune</span>
+              <div className="flex flex-wrap items-center gap-3 mb-4 sm:mb-5 max-lg:justify-center">
+                <span className="text-[11.5px] uppercase tracking-[0.2em] text-[#C9AE76]">📍 Mahalunge, Pune</span>
                 <span className="text-white/40">•</span>
-                <span className="text-[12px] uppercase tracking-[0.2em] text-[#C9AE76] font-semibold">Starting ₹1.90 Cr Onwards*</span>
+                <span className="text-[11.5px] uppercase tracking-[0.2em] text-[#C9AE76] font-semibold">Starting ₹1.90 Cr Onwards*</span>
               </div>
             </CinematicReveal>
 
             {/* "Get access to" list */}
             <CinematicReveal delay={0.2}>
-              <div className="border-t border-white/15 pt-6 mb-8 text-left max-lg:max-w-[420px] max-lg:mx-auto">
-                <p className="text-[11px] uppercase tracking-[0.26em] text-[#C9AE76] font-semibold mb-4">
+              <div className="border-t border-white/15 pt-4 sm:pt-5 mb-5 sm:mb-6 text-left max-lg:max-w-[420px] max-lg:mx-auto">
+                <p className="text-[10.5px] uppercase tracking-[0.26em] text-[#C9AE76] font-semibold mb-3">
                   Get Exclusive Access To:
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-2.5">
                   {accessItems.map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-[14.5px] text-white/85">
+                    <li key={item} className="flex items-center gap-3 text-[14px] text-white/85">
                       <span className="w-1.5 h-1.5 bg-[#C9AE76] rotate-45 shrink-0" />
                       <span>{item}</span>
                     </li>
@@ -1604,8 +1606,8 @@ const FinalLeadGenSection = () => {
                 href={`tel:${projectSnapshot.phone.replace(/\s+/g, "")}`}
                 className="inline-flex items-center gap-3 text-white/90 hover:text-[#C9AE76] transition-colors text-base"
               >
-                <PhoneIcon className="w-5 h-5 text-[#C9AE76]" />
-                <span className="font-heading text-xl tabular-nums">{projectSnapshot.phone}</span>
+                <PhoneIcon className="w-4 h-4 text-[#C9AE76]" />
+                <span className="font-heading text-lg sm:text-xl tabular-nums">{projectSnapshot.phone}</span>
               </a>
             </CinematicReveal>
           </div>
@@ -1613,20 +1615,20 @@ const FinalLeadGenSection = () => {
           {/* Right Lead Generation Form */}
           <div className="lg:col-span-6">
             <CinematicReveal delay={0.2}>
-              <div className="relative bg-[#FAF7F1] text-[#0B1E34] p-6 sm:p-12 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.6)]">
-                <span className="absolute top-0 left-6 sm:left-12 w-16 h-[2px] bg-[#B8975A]" />
-                <div className="mb-6">
+              <div className="relative bg-[#FAF7F1] text-[#0B1E34] p-5 sm:p-8 lg:p-9 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]">
+                <span className="absolute top-0 left-6 sm:left-9 w-14 h-[2px] bg-[#B8975A]" />
+                <div className="mb-4 sm:mb-5">
                   <span className="text-[10px] uppercase tracking-[0.3em] text-[#8C6D3A] font-semibold block mb-1">
                     Enquire Now
                   </span>
-                  <h3 className="font-heading text-2xl sm:text-3xl font-light text-[#0B1E34]">
+                  <h3 className="font-heading text-2xl sm:text-[1.75rem] font-light text-[#0B1E34] leading-tight">
                     Get Project Details
                   </h3>
                 </div>
 
                 <EnquiryForm ctaText="Get Complete Project Details" compact />
 
-                <p className="mt-6 text-[11px] text-[#0B1E34]/50 text-center italic">
+                <p className="mt-4 text-[10.5px] text-[#0B1E34]/50 text-center italic">
                   Prices, availability, specifications and offers are subject to confirmation and change.
                 </p>
               </div>

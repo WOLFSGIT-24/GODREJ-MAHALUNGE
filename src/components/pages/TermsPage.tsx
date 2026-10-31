@@ -1,5 +1,5 @@
 // Godrej Mahalunge - Terms & Conditions
-// Project-specific wording (disclaimer, RERA, partnership) follows runwal-auris.com.
+// Project-specific wording (disclaimer, RERA, partnership) follows godrejsmahalunge.com.
 import LegalPage from '@/components/LegalPage';
 import { projectSnapshot } from '@/lib/data';
 
