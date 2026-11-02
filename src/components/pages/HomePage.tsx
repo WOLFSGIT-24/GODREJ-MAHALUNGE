@@ -213,6 +213,24 @@ export const godrejRendersGallery = [
     imageUrl: "/godrej-master-plan.webp",
     category: "Master Plan",
   },
+  {
+    id: "floor-plan-3bhk-premium",
+    title: "3 BHK Premium Floor Plan — 1,960 Sq. Ft.",
+    imageUrl: "/godrej-plan-3bhk-premium.webp",
+    category: "Floor Plans",
+  },
+  {
+    id: "floor-plan-3bhk-grande",
+    title: "3 BHK Grande Floor Plan — 2,700 Sq. Ft.",
+    imageUrl: "/godrej-plan-3bhk-grande.webp",
+    category: "Floor Plans",
+  },
+  {
+    id: "floor-plan-4bhk-grande",
+    title: "4 BHK Grande Floor Plan — 3,150 Sq. Ft.",
+    imageUrl: "/godrej-plan-4bhk-grande.webp",
+    category: "Floor Plans",
+  },
 ];
 
 type GalleryItem = typeof godrejRendersGallery[0];
@@ -512,7 +530,7 @@ const HeroSection = ({
               transition={{ duration: 1, delay: 0.45, ease: EASE }}
               className="text-[14px] sm:text-[16px] text-white/90 mb-6 sm:mb-7 tracking-[0.02em] drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)]"
             >
-              Premium 3 BHK Residences &amp; Limited 4 BHK Duplex Homes
+              3 BHK Premium, 3 BHK Grande &amp; 4 BHK Grande Residences
             </motion.p>
 
             {/* Pricing Highlight Card */}
@@ -526,7 +544,7 @@ const HeroSection = ({
                 Exclusive Launch Opportunity
               </span>
               <span className="font-heading text-2xl sm:text-3xl lg:text-[2rem] text-white font-light tracking-tight">
-                Starting ₹1.90 Cr Onwards*
+                Starting ₹2.60 Cr Onwards*
               </span>
             </motion.div>
 
@@ -608,11 +626,11 @@ const ProjectOverviewSection = ({
 
   const highlights = [
     '8.5 Acres of Planned Development',
-    'Premium 3 BHK Apartments',
-    'Limited 4 BHK Duplex Residences',
-    'French-Inspired Design',
-    'Low-Density Residential Concept',
-    'River-Facing Apartments',
+    '3 BHK Premium (1,960 Sq. Ft.)',
+    '3 BHK Grande (2,700 Sq. Ft.)',
+    '4 BHK Grande (3,150 Sq. Ft.)',
+    'French-Inspired Architecture',
+    'River-Facing Residences',
   ];
 
   return (
@@ -713,32 +731,90 @@ const ConfigurationPricingSection = ({
   onOpenImageModal: (img: GalleryItem) => void;
   onOpenPriceBreakup: () => void;
 }) => {
+  const [activeFilter, setActiveFilter] = useState<'All' | '3 BHK' | '4 BHK'>('All');
+
   const configs = [
     {
-      title: "3 BHK Premium Residences",
-      tag: "Premium Living",
-      price: "Starting ₹1.90 Cr Onwards*",
-      description: "Spacious layouts, premium finishes, and thoughtfully designed living spaces.",
-      image: "/godrej-living-room.webp",
-      galleryRef: godrejRendersGallery[3],
-      features: ["Spacious living & dining spaces", "Expansive sunlit balcony", "Optimal privacy & cross-ventilation", "Panoramic river / city vistas"],
+      id: "3bhk-premium",
+      typeCode: "TYPE A (UNIT 1 & 2)",
+      unitType: "3 BHK" as const,
+      badge: "APPROVED",
+      title: "3 BHK Premium",
+      size: "1,960 Sq. Ft.",
+      price: "₹2.60 Cr* Onwards",
+      description: "Expansive 3-bedroom residence with private foyer, elegant living-dining layout, and sunlit river balcony.",
+      image: "/godrej-plan-3bhk-premium.webp",
+      galleryRef: {
+        id: "floor-plan-3bhk-premium",
+        title: "3 BHK Premium Floor Plan — 1,960 Sq. Ft.",
+        imageUrl: "/godrej-plan-3bhk-premium.webp",
+        category: "Floor Plans",
+      },
+      features: [
+        "1,960 Sq. Ft. expansive layout",
+        "Spacious living & dining space",
+        "Sunlit river-facing balcony",
+        "Optimal cross-ventilation & privacy",
+      ],
     },
     {
-      title: "4 BHK Luxury Duplex Residences",
-      tag: "Limited Edition",
-      price: "Price On Request",
-      description: "Limited-edition duplex homes offering expansive spaces and an exclusive residential experience.",
-      image: "/godrej-bedroom.webp",
-      galleryRef: godrejRendersGallery[4],
-      features: ["Double-height architectural volume", "Grand master suites with deck", "Ultra low-density layout", "Select river-facing orientation"],
+      id: "3bhk-grande",
+      typeCode: "TYPE B (UNIT 3)",
+      unitType: "3 BHK" as const,
+      badge: "LUXURY SUITE",
+      title: "3 BHK Grande",
+      size: "2,700 Sq. Ft.",
+      price: "₹3.60 Cr* Onwards",
+      description: "Grande layout boasting double-volume living spaces, grand master suite with private deck, and scenic river vistas.",
+      image: "/godrej-plan-3bhk-grande.webp",
+      galleryRef: {
+        id: "floor-plan-3bhk-grande",
+        title: "3 BHK Grande Floor Plan — 2,700 Sq. Ft.",
+        imageUrl: "/godrej-plan-3bhk-grande.webp",
+        category: "Floor Plans",
+      },
+      features: [
+        "2,700 Sq. Ft. grande footprint",
+        "Grand master suite with private deck",
+        "Expansive double-volume living",
+        "Panoramic natural river views",
+      ],
+    },
+    {
+      id: "4bhk-grande",
+      typeCode: "TYPE C (UNIT 4 & 5)",
+      unitType: "4 BHK" as const,
+      badge: "EXCLUSIVE",
+      title: "4 BHK Grande",
+      size: "3,150 Sq. Ft.",
+      price: "₹4.35 Cr* Onwards",
+      description: "Palatial 4-bedroom grande residence with architectural grandeur, family lounge, and lavish entertainment areas.",
+      image: "/godrej-plan-4bhk-grande.webp",
+      galleryRef: {
+        id: "floor-plan-4bhk-grande",
+        title: "4 BHK Grande Floor Plan — 3,150 Sq. Ft.",
+        imageUrl: "/godrej-plan-4bhk-grande.webp",
+        category: "Floor Plans",
+      },
+      features: [
+        "3,150 Sq. Ft. palatial residence",
+        "Double-height architectural volume",
+        "Exclusive low-density floorplate",
+        "Select river-facing orientation",
+      ],
     },
   ];
+
+  const filteredConfigs = configs.filter((c) => {
+    if (activeFilter === 'All') return true;
+    return c.unitType === activeFilter;
+  });
 
   return (
     <section id="pricing" className="py-12 sm:py-24 lg:py-36 bg-[#F3EEE4] relative scroll-mt-20 lg:scroll-mt-[100px]">
       <div className="max-w-[1320px] mx-auto px-5 sm:px-8">
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-end mb-8 sm:mb-14 lg:mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-end mb-8 sm:mb-12">
           <div className="lg:col-span-7 max-lg:text-center">
             <Eyebrow>Configuration &amp; Pricing</Eyebrow>
             <Display
@@ -756,59 +832,122 @@ const ConfigurationPricingSection = ({
           </CinematicReveal>
         </div>
 
-        {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-14">
-          {configs.map((c, idx) => (
-            <CinematicReveal key={c.title} delay={idx * 0.15} className="h-full">
-              <div className="bg-[#FAF7F1] border border-[#0B1E34]/12 flex flex-col h-full overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-500">
-                {/* Image */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-[#0B1E34]">
-                  <button
+        {/* Filter Tabs & Blueprint Hint Bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 sm:mb-10 pb-4 border-b border-[#0B1E34]/10">
+          <div className="flex flex-wrap items-center gap-2.5">
+            {(['All Floor Plans', '3 BHK', '4 BHK'] as const).map((tab) => {
+              const val = tab === 'All Floor Plans' ? 'All' : tab;
+              const isActive = activeFilter === val;
+              return (
+                <button
+                  key={tab}
+                  type="button"
+                  onClick={() => setActiveFilter(val)}
+                  className={`px-5 py-2.5 rounded-full text-[12.5px] sm:text-[13px] font-medium tracking-wide transition-all duration-300 cursor-pointer ${
+                    isActive
+                      ? 'bg-[#0B1E34] text-[#FAF7F1] shadow-md shadow-[#0B1E34]/15'
+                      : 'bg-white/80 hover:bg-white text-[#0B1E34]/80 hover:text-[#0B1E34] border border-[#0B1E34]/15'
+                  }`}
+                >
+                  {tab}
+                </button>
+              );
+            })}
+          </div>
+          <p className="text-[12px] sm:text-[13px] text-[#0B1E34]/60 italic text-center sm:text-right">
+            Click on any unit to enlarge blueprint details
+          </p>
+        </div>
+
+        {/* Pricing & Blueprint Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 mb-10 sm:mb-14">
+          {filteredConfigs.map((c, idx) => (
+            <CinematicReveal key={c.id} delay={idx * 0.1} className="h-full">
+              <div className="bg-[#FAF7F1] border border-[#0B1E34]/15 rounded-2xl flex flex-col justify-between h-full overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 p-5 sm:p-6 group hover:border-[#B8975A]">
+                <div>
+                  {/* Top Card Meta Row */}
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <div>
+                      <span className="text-[10.5px] uppercase tracking-[0.2em] text-[#0B1E34]/60 font-semibold block">
+                        {c.typeCode}
+                      </span>
+                      {c.badge && (
+                        <span className="inline-block mt-1 text-[9.5px] uppercase tracking-wider font-semibold text-emerald-800 bg-emerald-50 border border-emerald-300/70 px-2 py-0.5 rounded">
+                          {c.badge}
+                        </span>
+                      )}
+                    </div>
+                    <span className="bg-[#0B1E34] text-[#E3CF9F] text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-wider shrink-0">
+                      {c.unitType}
+                    </span>
+                  </div>
+
+                  {/* Blueprint Image Preview Box */}
+                  <div
                     onClick={() => onOpenImageModal(c.galleryRef)}
-                    className="w-full h-full block cursor-pointer group relative"
-                    aria-label={`View ${c.title}`}
+                    className="relative aspect-[4/3] bg-white rounded-xl border border-[#0B1E34]/10 p-3 sm:p-4 flex items-center justify-center overflow-hidden cursor-pointer group/img mb-5 shadow-[inset_0_2px_8px_rgba(0,0,0,0.03)]"
+                    title="Click to enlarge blueprint details"
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        onOpenImageModal(c.galleryRef);
+                      }
+                    }}
                   >
                     <img
                       src={c.image}
-                      srcSet={srcSet(c.image)}
-                      alt={c.title}
+                      alt={`${c.title} floor plan blueprint`}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover/img:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#06111F]/80 via-transparent to-transparent" />
-                    <span className="absolute top-4 left-4 bg-[#0B1E34] text-[#C9AE76] text-[10px] uppercase tracking-[0.24em] px-3 py-1 font-medium">
-                      {c.tag}
-                    </span>
-                    <ExpandBadge />
-                  </button>
-                </div>
-
-                {/* Content */}
-                <div className="p-6 sm:p-9 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-heading text-2xl sm:text-3xl font-light text-[#0B1E34] mb-2">
-                      {c.title}
-                    </h3>
-                    <div className="font-heading text-2xl sm:text-[1.9rem] text-[#8C6D3A] font-light tracking-tight mb-4">
-                      {c.price}
-                    </div>
-                    <p className="text-[15px] leading-[1.7] text-[#0B1E34]/70 mb-6">
-                      {c.description}
-                    </p>
-
-                    <div className="border-t border-[#0B1E34]/10 pt-5 mb-8">
-                      <ul className="space-y-2.5">
-                        {c.features.map((feat) => (
-                          <li key={feat} className="flex items-center gap-3 text-[14px] text-[#0B1E34]/80">
-                            <CheckIcon className="w-4 h-4 text-[#8C6D3A] shrink-0" />
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    {/* Hover View Blueprint Button */}
+                    <div className="absolute inset-0 bg-[#0B1E34]/40 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                      <span className="inline-flex items-center gap-2 bg-[#0B1E34]/95 text-[#FAF7F1] px-4 py-2 rounded-full text-[12px] font-medium tracking-wide shadow-xl border border-[#C9AE76]/50">
+                        <svg className="w-3.5 h-3.5 text-[#C9AE76]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15zM10.5 7.5v6m-3-3h6" />
+                        </svg>
+                        View Blueprint
+                      </span>
                     </div>
                   </div>
 
-                  <Btn variant="navy" className="w-full" onClick={onOpenPriceBreakup}>
+                  {/* Title & Size Badge Row */}
+                  <div className="flex items-center justify-between gap-3 mb-1.5">
+                    <h3 className="font-heading text-xl sm:text-[1.35rem] font-light text-[#0B1E34]">
+                      {c.title}
+                    </h3>
+                    <span className="bg-[#F3EEE4] border border-[#0B1E34]/12 rounded-lg px-2.5 py-1 text-[12px] sm:text-[13px] font-semibold text-[#0B1E34] shrink-0">
+                      {c.size}
+                    </span>
+                  </div>
+
+                  {/* Price */}
+                  <div className="font-heading text-2xl sm:text-[1.75rem] text-[#8C6D3A] font-light tracking-tight mb-3">
+                    {c.price}
+                  </div>
+
+                  <p className="text-[13.5px] leading-[1.65] text-[#0B1E34]/70 mb-5">
+                    {c.description}
+                  </p>
+
+                  {/* Feature Checklist */}
+                  <div className="border-t border-[#0B1E34]/10 pt-4 mb-6">
+                    <ul className="space-y-2">
+                      {c.features.map((feat) => (
+                        <li key={feat} className="flex items-center gap-2.5 text-[13px] text-[#0B1E34]/85">
+                          <CheckIcon className="w-3.5 h-3.5 text-[#8C6D3A] shrink-0" />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <div className="space-y-2 pt-2">
+                  <Btn variant="navy" className="w-full text-center justify-center text-[11px] sm:text-[12px] tracking-[0.18em]" onClick={onOpenPriceBreakup}>
                     Get Complete Price Breakup
                   </Btn>
                 </div>
@@ -848,9 +987,9 @@ const ProjectUSPsSection = ({ onOpenHighlights }: { onOpenHighlights: () => void
       desc: "Selected apartments offer beautiful river-facing views, adding a refreshing natural element to everyday life.",
     },
     {
-      title: "Limited 4 BHK Duplex Homes",
+      title: "Spacious 3 & 4 BHK Grande Residences",
       icon: LayoutIcon,
-      desc: "An exclusive collection of larger duplex residences for buyers looking for additional space and privacy.",
+      desc: "An exclusive collection of 1,960 to 3,150 sq. ft. residences designed for buyers looking for expansive space and privacy.",
     },
     {
       title: "Prime West Pune Location",
@@ -1440,7 +1579,7 @@ const WhyChooseSection = ({ onOpenContactForm }: { onOpenContactForm: () => void
     },
     {
       title: "Premium Living Spaces",
-      desc: "Choose between thoughtfully designed 3 BHK apartments and limited 4 BHK duplex residences.",
+      desc: "Choose between 3 BHK Premium (1,960 Sq. Ft.), 3 BHK Grande (2,700 Sq. Ft.) and 4 BHK Grande (3,150 Sq. Ft.) residences.",
     },
     {
       title: "A Lifestyle Beyond Your Apartment",
@@ -1575,12 +1714,12 @@ const FinalLeadGenSection = () => {
                 Godrej Mahalunge — Where French Elegance Meets Modern Living.
               </h3>
               <p className="text-[14.5px] sm:text-[16px] text-white/80 mb-2">
-                Premium 3 BHK Residences &amp; Limited 4 BHK Duplex Homes
+                3 BHK Premium, 3 BHK Grande &amp; 4 BHK Grande Residences
               </p>
               <div className="flex flex-wrap items-center gap-3 mb-4 sm:mb-5 max-lg:justify-center">
                 <span className="text-[11.5px] uppercase tracking-[0.2em] text-[#C9AE76]">📍 Mahalunge, Pune</span>
                 <span className="text-white/40">•</span>
-                <span className="text-[11.5px] uppercase tracking-[0.2em] text-[#C9AE76] font-semibold">Starting ₹1.90 Cr Onwards*</span>
+                <span className="text-[11.5px] uppercase tracking-[0.2em] text-[#C9AE76] font-semibold">Starting ₹2.60 Cr Onwards*</span>
               </div>
             </CinematicReveal>
 
