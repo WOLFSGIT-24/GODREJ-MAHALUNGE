@@ -215,19 +215,13 @@ export const godrejRendersGallery = [
   },
   {
     id: "floor-plan-3bhk-premium",
-    title: "3 BHK Premium Floor Plan — 1,960 Sq. Ft.",
+    title: "3 BHK Premium Residences Floor Plan",
     imageUrl: "/godrej-plan-3bhk-premium.webp",
     category: "Floor Plans",
   },
   {
-    id: "floor-plan-3bhk-grande",
-    title: "3 BHK Grande Floor Plan — 2,700 Sq. Ft.",
-    imageUrl: "/godrej-plan-3bhk-grande.webp",
-    category: "Floor Plans",
-  },
-  {
-    id: "floor-plan-4bhk-grande",
-    title: "4 BHK Grande Floor Plan — 3,150 Sq. Ft.",
+    id: "floor-plan-4bhk-duplex",
+    title: "4 BHK Luxury Duplex Residences Floor Plan",
     imageUrl: "/godrej-plan-4bhk-grande.webp",
     category: "Floor Plans",
   },
@@ -530,7 +524,7 @@ const HeroSection = ({
               transition={{ duration: 1, delay: 0.45, ease: EASE }}
               className="text-[14px] sm:text-[16px] text-white/90 mb-6 sm:mb-7 tracking-[0.02em] drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)]"
             >
-              3 BHK Premium, 3 BHK Grande &amp; 4 BHK Grande Residences
+              Premium 3 BHK Residences &amp; Limited 4 BHK Duplex Homes
             </motion.p>
 
             {/* Pricing Highlight Card */}
@@ -544,7 +538,7 @@ const HeroSection = ({
                 Exclusive Launch Opportunity
               </span>
               <span className="font-heading text-2xl sm:text-3xl lg:text-[2rem] text-white font-light tracking-tight">
-                Starting ₹2.60 Cr Onwards*
+                Starting ₹1.90 Cr Onwards*
               </span>
             </motion.div>
 
@@ -626,11 +620,11 @@ const ProjectOverviewSection = ({
 
   const highlights = [
     '8.5 Acres of Planned Development',
-    '3 BHK Premium (1,960 Sq. Ft.)',
-    '3 BHK Grande (2,700 Sq. Ft.)',
-    '4 BHK Grande (3,150 Sq. Ft.)',
-    'French-Inspired Architecture',
-    'River-Facing Residences',
+    'Premium 3 BHK Apartments',
+    'Limited 4 BHK Duplex Residences',
+    'French-Inspired Design',
+    'Low-Density Residential Concept',
+    'River-Facing Apartments',
   ];
 
   return (
@@ -731,76 +725,51 @@ const ConfigurationPricingSection = ({
   onOpenImageModal: (img: GalleryItem) => void;
   onOpenPriceBreakup: () => void;
 }) => {
-  const [activeFilter, setActiveFilter] = useState<'All' | '3 BHK' | '4 BHK'>('All');
+  const [activeFilter, setActiveFilter] = useState<'All' | '3 BHK' | '4 BHK Duplex'>('All');
 
   const configs = [
     {
       id: "3bhk-premium",
-      typeCode: "TYPE A (UNIT 1 & 2)",
+      typeCode: "PREMIUM RESIDENCES",
       unitType: "3 BHK" as const,
-      badge: "APPROVED",
-      title: "3 BHK Premium",
-      size: "1,960 Sq. Ft.",
-      price: "₹2.60 Cr* Onwards",
-      description: "Expansive 3-bedroom residence with private foyer, elegant living-dining layout, and sunlit river balcony.",
+      badge: "FEATURED",
+      title: "3 BHK Premium Residences",
+      price: "Starting Price: ₹1.90 Cr Onwards*",
+      description: "Spacious layouts, premium finishes, and thoughtfully designed living spaces.",
       image: "/godrej-plan-3bhk-premium.webp",
       galleryRef: {
         id: "floor-plan-3bhk-premium",
-        title: "3 BHK Premium Floor Plan — 1,960 Sq. Ft.",
+        title: "3 BHK Premium Residences Floor Plan",
         imageUrl: "/godrej-plan-3bhk-premium.webp",
         category: "Floor Plans",
       },
       features: [
-        "1,960 Sq. Ft. expansive layout",
-        "Spacious living & dining space",
-        "Sunlit river-facing balcony",
+        "Spacious layouts & premium finishes",
+        "Thoughtfully designed living spaces",
+        "Scenic river-facing views & balconies",
         "Optimal cross-ventilation & privacy",
       ],
     },
     {
-      id: "3bhk-grande",
-      typeCode: "TYPE B (UNIT 3)",
-      unitType: "3 BHK" as const,
-      badge: "LUXURY SUITE",
-      title: "3 BHK Grande",
-      size: "2,700 Sq. Ft.",
-      price: "₹3.60 Cr* Onwards",
-      description: "Grande layout boasting double-volume living spaces, grand master suite with private deck, and scenic river vistas.",
-      image: "/godrej-plan-3bhk-grande.webp",
-      galleryRef: {
-        id: "floor-plan-3bhk-grande",
-        title: "3 BHK Grande Floor Plan — 2,700 Sq. Ft.",
-        imageUrl: "/godrej-plan-3bhk-grande.webp",
-        category: "Floor Plans",
-      },
-      features: [
-        "2,700 Sq. Ft. grande footprint",
-        "Grand master suite with private deck",
-        "Expansive double-volume living",
-        "Panoramic natural river views",
-      ],
-    },
-    {
-      id: "4bhk-grande",
-      typeCode: "TYPE C (UNIT 4 & 5)",
-      unitType: "4 BHK" as const,
-      badge: "EXCLUSIVE",
-      title: "4 BHK Grande",
-      size: "3,150 Sq. Ft.",
-      price: "₹4.35 Cr* Onwards",
-      description: "Palatial 4-bedroom grande residence with architectural grandeur, family lounge, and lavish entertainment areas.",
+      id: "4bhk-duplex",
+      typeCode: "LUXURY DUPLEX",
+      unitType: "4 BHK Duplex" as const,
+      badge: "LIMITED EDITION",
+      title: "4 BHK Luxury Duplex Residences",
+      price: "Price: On Request",
+      description: "Limited-edition duplex homes offering expansive spaces and an exclusive residential experience.",
       image: "/godrej-plan-4bhk-grande.webp",
       galleryRef: {
-        id: "floor-plan-4bhk-grande",
-        title: "4 BHK Grande Floor Plan — 3,150 Sq. Ft.",
+        id: "floor-plan-4bhk-duplex",
+        title: "4 BHK Luxury Duplex Residences Floor Plan",
         imageUrl: "/godrej-plan-4bhk-grande.webp",
         category: "Floor Plans",
       },
       features: [
-        "3,150 Sq. Ft. palatial residence",
-        "Double-height architectural volume",
-        "Exclusive low-density floorplate",
-        "Select river-facing orientation",
+        "Limited-edition luxury duplex homes",
+        "Expansive double-volume living spaces",
+        "Exclusive residential experience & privacy",
+        "Selected river-facing orientation",
       ],
     },
   ];
@@ -835,8 +804,8 @@ const ConfigurationPricingSection = ({
         {/* Filter Tabs & Blueprint Hint Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 sm:mb-10 pb-4 border-b border-[#0B1E34]/10">
           <div className="flex flex-wrap items-center gap-2.5">
-            {(['All Floor Plans', '3 BHK', '4 BHK'] as const).map((tab) => {
-              const val = tab === 'All Floor Plans' ? 'All' : tab;
+            {(['All Residences', '3 BHK', '4 BHK Duplex'] as const).map((tab) => {
+              const val = tab === 'All Residences' ? 'All' : tab;
               const isActive = activeFilter === val;
               return (
                 <button
@@ -860,10 +829,10 @@ const ConfigurationPricingSection = ({
         </div>
 
         {/* Pricing & Blueprint Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 mb-10 sm:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto gap-6 sm:gap-8 mb-10 sm:mb-14">
           {filteredConfigs.map((c, idx) => (
             <CinematicReveal key={c.id} delay={idx * 0.1} className="h-full">
-              <div className="bg-[#FAF7F1] border border-[#0B1E34]/15 rounded-2xl flex flex-col justify-between h-full overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 p-5 sm:p-6 group hover:border-[#B8975A]">
+              <div className="bg-[#FAF7F1] border border-[#0B1E34]/15 rounded-2xl flex flex-col justify-between h-full overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 p-5 sm:p-7 group hover:border-[#B8975A]">
                 <div>
                   {/* Top Card Meta Row */}
                   <div className="flex items-start justify-between gap-2 mb-3">
@@ -913,18 +882,15 @@ const ConfigurationPricingSection = ({
                     </div>
                   </div>
 
-                  {/* Title & Size Badge Row */}
-                  <div className="flex items-center justify-between gap-3 mb-1.5">
+                  {/* Title */}
+                  <div className="mb-1.5">
                     <h3 className="font-heading text-xl sm:text-[1.35rem] font-light text-[#0B1E34]">
                       {c.title}
                     </h3>
-                    <span className="bg-[#F3EEE4] border border-[#0B1E34]/12 rounded-lg px-2.5 py-1 text-[12px] sm:text-[13px] font-semibold text-[#0B1E34] shrink-0">
-                      {c.size}
-                    </span>
                   </div>
 
                   {/* Price */}
-                  <div className="font-heading text-2xl sm:text-[1.75rem] text-[#8C6D3A] font-light tracking-tight mb-3">
+                  <div className="font-heading text-xl sm:text-[1.5rem] text-[#8C6D3A] font-light tracking-tight mb-3">
                     {c.price}
                   </div>
 
@@ -958,7 +924,7 @@ const ConfigurationPricingSection = ({
 
         {/* Footnote Disclaimer */}
         <p className="text-center text-[12px] text-[#0B1E34]/55 italic">
-          *Prices are indicative and subject to availability and applicable charges.
+          Prices are indicative and subject to availability and applicable charges.
         </p>
 
       </div>
@@ -987,9 +953,9 @@ const ProjectUSPsSection = ({ onOpenHighlights }: { onOpenHighlights: () => void
       desc: "Selected apartments offer beautiful river-facing views, adding a refreshing natural element to everyday life.",
     },
     {
-      title: "Spacious 3 & 4 BHK Grande Residences",
+      title: "Limited 4 BHK Duplex Homes",
       icon: LayoutIcon,
-      desc: "An exclusive collection of 1,960 to 3,150 sq. ft. residences designed for buyers looking for expansive space and privacy.",
+      desc: "An exclusive collection of larger duplex residences for buyers looking for additional space and privacy.",
     },
     {
       title: "Prime West Pune Location",
@@ -1579,7 +1545,7 @@ const WhyChooseSection = ({ onOpenContactForm }: { onOpenContactForm: () => void
     },
     {
       title: "Premium Living Spaces",
-      desc: "Choose between 3 BHK Premium (1,960 Sq. Ft.), 3 BHK Grande (2,700 Sq. Ft.) and 4 BHK Grande (3,150 Sq. Ft.) residences.",
+      desc: "Choose between thoughtfully designed 3 BHK apartments and limited 4 BHK duplex residences.",
     },
     {
       title: "A Lifestyle Beyond Your Apartment",
@@ -1714,12 +1680,12 @@ const FinalLeadGenSection = () => {
                 Godrej Mahalunge — Where French Elegance Meets Modern Living.
               </h3>
               <p className="text-[14.5px] sm:text-[16px] text-white/80 mb-2">
-                3 BHK Premium, 3 BHK Grande &amp; 4 BHK Grande Residences
+                Premium 3 BHK Residences &amp; Limited 4 BHK Duplex Homes
               </p>
               <div className="flex flex-wrap items-center gap-3 mb-4 sm:mb-5 max-lg:justify-center">
                 <span className="text-[11.5px] uppercase tracking-[0.2em] text-[#C9AE76]">📍 Mahalunge, Pune</span>
                 <span className="text-white/40">•</span>
-                <span className="text-[11.5px] uppercase tracking-[0.2em] text-[#C9AE76] font-semibold">Starting ₹2.60 Cr Onwards*</span>
+                <span className="text-[11.5px] uppercase tracking-[0.2em] text-[#C9AE76] font-semibold">Starting ₹1.90 Cr Onwards*</span>
               </div>
             </CinematicReveal>
 

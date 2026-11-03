@@ -36,7 +36,7 @@ export default function Footer({ onOpenContactForm, onOpenBrochure }: FooterProp
 
           <div className="lg:col-span-4 flex flex-col justify-center">
             <p className="font-heading text-[1.1rem] sm:text-[1.4rem] font-light tracking-[-0.01em]">
-              3 BHK Premium, 3 BHK Grande &amp; 4 BHK Grande Residences
+              Premium 3 BHK Residences &amp; Limited 4 BHK Duplex Homes
             </p>
           </div>
 

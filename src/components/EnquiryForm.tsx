@@ -3,20 +3,17 @@ import React, { useEffect, useId, useRef, useState } from 'react';
 import { ArrowIcon } from '@/components/icons/AurisIcons';
 
 const CONFIGURATIONS = [
-  '3 BHK Premium (1960 Sq.Ft)',
-  '3 BHK Grande (2700 Sq.Ft)',
-  '4 BHK Grande (3150 Sq.Ft)',
+  '3 BHK',
+  '4 BHK Duplex',
 ];
 const CONFIG_LABELS: Record<string, string> = {
-  '3 BHK Premium (1960 Sq.Ft)': '3 BHK Premium (1,960 Sq.Ft)',
-  '3 BHK Grande (2700 Sq.Ft)': '3 BHK Grande (2,700 Sq.Ft)',
-  '4 BHK Grande (3150 Sq.Ft)': '4 BHK Grande (3,150 Sq.Ft)',
+  '3 BHK': '3 BHK',
+  '4 BHK Duplex': '4 BHK Duplex',
 };
-const BUDGETS = ['₹2.60 Cr* Onwards', '₹3.60 Cr* Onwards', '₹4.35 Cr* Onwards'];
+const BUDGETS = ['₹1.90 Cr Onwards*', 'Price on Request'];
 const BUDGET_LABELS: Record<string, string> = {
-  '₹2.60 Cr* Onwards': '₹2.60 Cr* Onwards',
-  '₹3.60 Cr* Onwards': '₹3.60 Cr* Onwards',
-  '₹4.35 Cr* Onwards': '₹4.35 Cr* Onwards',
+  '₹1.90 Cr Onwards*': '₹1.90 Cr Onwards*',
+  'Price on Request': 'Price on Request',
 };
 
 const EMPTY = {

@@ -1,6 +1,6 @@
 # Godrej Mahalunge
 
-Landing site for **Godrej Mahalunge**, French-inspired luxury living in West Pune. 3 BHK Premium, 3 BHK Grande & 4 BHK Grande residences starting ₹2.60 Cr onwards*.
+Landing site for **Godrej Mahalunge**, French-inspired luxury living in West Pune. Premium 3 BHK Residences & Limited 4 BHK Duplex Homes starting ₹1.90 Cr onwards*.
 
 Built with Astro, React and Tailwind CSS.
 

@@ -3,8 +3,8 @@ export const projectSnapshot = {
   name: 'Godrej Mahalunge',
   developer: 'Godrej Properties',
   tagline: 'French-Inspired Luxury Living in West Pune',
-  configuration: '3 BHK Premium, 3 BHK Grande & 4 BHK Grande Residences',
-  priceStarting: '₹2.60 Cr Onwards*',
+  configuration: 'Premium 3 BHK Residences & Limited 4 BHK Duplex Homes',
+  priceStarting: '₹1.90 Cr Onwards*',
   locationShort: 'Mahalunge, Pune',
   corridor: 'Baner–Hinjewadi Corridor',
   address: {
